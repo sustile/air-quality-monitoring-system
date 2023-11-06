@@ -1,0 +1,7 @@
+.DataContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+  width: 90%;
+  margin: 0 auto;
+}

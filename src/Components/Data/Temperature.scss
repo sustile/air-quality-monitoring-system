@@ -1,0 +1,121 @@
+.Temperature {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-radius: 10rem;
+  background: #5aa7f2;
+  gap: 1.5rem;
+  width: 100%;
+  position: relative;
+  height: 8rem;
+  .view-graph {
+    color: #363636;
+    font-family: Poppins;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 12rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      position: absolute;
+      display: inline-block;
+      bottom: -0.2rem;
+      left: 0;
+      content: "";
+      background-color: #363636;
+      z-index: -1;
+      width: 100%;
+      height: 0.4rem;
+      border-radius: 1rem;
+      width: 0;
+      transition: all 0.3s ease;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+  img {
+    width: 1.8rem;
+    height: 1.8rem;
+    cursor: pointer;
+    transition: scale 0.3s ease;
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+
+  .MainData {
+    border-radius: 10rem;
+    background: var(--sp-black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem 3rem;
+    height: 8rem;
+    z-index: 5;
+    width: calc(100% - 5rem);
+    transition: width 0.3s ease;
+
+    //5rem -- hide
+    //20rem --show
+
+    &::before {
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      left: 0;
+      content: "";
+      background-color: #fc4646;
+      z-index: -1;
+      width: 80%;
+      height: 100%;
+      border-radius: 10rem;
+    }
+
+    .textData {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+
+      h3 {
+        color: #242423;
+        font-family: Poppins;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+
+      p {
+        color: #242423;
+        font-family: Poppins;
+        font-size: 1.8rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+
+    span {
+      color: var(--primary-white);
+      font-family: Poppins;
+      font-size: 2rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}

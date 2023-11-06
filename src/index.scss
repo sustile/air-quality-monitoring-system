@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Serif:ital,opsz,wght@0,8..144,200;0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;0,8..144,700;0,8..144,800;0,8..144,900;1,8..144,100;1,8..144,200;1,8..144,300;1,8..144,400;1,8..144,500;1,8..144,600;1,8..144,700;1,8..144,800;1,8..144,900&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -9,6 +10,32 @@
 html {
   font-size: 55.5%;
 }
+
+// :root {
+//   --primary-bg: #242423;
+//   --black-1: #2c2c2c;
+//   --black-2: #383838;
+//   --sp-black: #363636;
+//   --black-3: #505050;
+//   --black-4: #6a6a6a;
+//   --black-5: #6a6a6a;
+//   --yellow-1: #f9dc5c;
+//   --yellow-2: #ffe46f;
+//   --yellow-3: #fde88c;
+//   --yellow-4: #faedb3;
+//   --primary-white: #fafaf5;
+//   --green-1: #60993e;
+//   --green-2: #6fb048;
+//   --green-3: #82cc56;
+//   --green-4: #9cf06a;
+//   --green-5: #a6ff71;
+//   --pink-1: #9e829c;
+//   --pink-2: #bc9aba;
+//   --pink-3: #eac1e7;
+//   --pink-4: #eac1e7;
+//   --blue-1: #b9d6f2;
+//   --secondary-white: #dbe8f5;
+// }
 
 :root {
   --primary-bg: #dbe8f5;
