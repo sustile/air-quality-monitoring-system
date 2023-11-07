@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./Header.scss";
 
-export default function Header() {
+export default function Header({ reloadData }) {
   return (
     <motion.div className="Header">
       <h2>Air Quality Monitoring System</h2>
@@ -24,6 +24,7 @@ export default function Header() {
             type: "spring",
           },
         }}
+        onClick={reloadData}
       >
         <p>Reload Data</p>
         <motion.img src={"/Icons/ArrowClockwise.svg"} />

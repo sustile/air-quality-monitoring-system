@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./Hydrogen.css";
 
-export default function Hydrogen() {
+export default function Hydrogen({ hydrogen }) {
   let [width, setWidth] = useState(5);
   let [barWidth, setBarWidth] = useState(80);
   return (
@@ -93,9 +93,10 @@ export default function Hydrogen() {
         }
       >
         <div className="textData">
-          <h3>Humidity</h3>
-          <p>38%</p>
+          <h3>Hydrogen</h3>
+          <p>{hydrogen}%</p>
         </div>
+        <div className="colorBar"></div>
       </motion.div>
     </motion.div>
   );

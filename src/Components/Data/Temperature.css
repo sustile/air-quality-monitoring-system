@@ -63,8 +63,9 @@
   z-index: 5;
   width: calc(100% - 5rem);
   transition: width 0.3s ease;
+  overflow: hidden;
 }
-.Temperature .MainData::before {
+.Temperature .MainData .colorBar {
   position: absolute;
   display: inline-block;
   top: 0;
@@ -72,7 +73,7 @@
   content: "";
   background-color: #fc4646;
   z-index: -1;
-  width: 80%;
+  width: 50%;
   height: 100%;
   border-radius: 10rem;
 }

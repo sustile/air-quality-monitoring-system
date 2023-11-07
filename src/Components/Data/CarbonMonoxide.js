@@ -2,8 +2,29 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./CarbonMonoxide.css";
 
-export default function CarbonMonoxide() {
+export default function CarbonMonoxide({ carbon }) {
   let [width, setWidth] = useState(5);
+  let charts = [
+    { from: 0, to: 50, status: "Good", bar: 20, color: "#9cf06a" },
+    { from: 51, to: 100, status: "Medium", bar: 40, color: "#f9dc5c" },
+    { from: 101, to: 199, status: "Unhealthy", bar: 60, color: "#f7924e" },
+    { from: 200, to: 299, status: "Very Unhealthy", bar: 80, color: "#f8741d" },
+    { from: 300, to: 100000000, status: "Harmful", bar: 100, color: "#fc4646" },
+  ];
+
+  let [status, setStatus] = useState("");
+  let [barWidth, setBarWidth] = useState(0);
+  let [color, setColor] = useState("f9dc5c");
+
+  useEffect(() => {
+    charts.forEach((el) => {
+      if (carbon >= el.from && carbon <= el.to) {
+        setStatus(el.status);
+        setBarWidth(el.bar);
+        setColor(el.color);
+      }
+    });
+  }, []);
   return (
     <motion.div className="CarbonMonoxide">
       <motion.p
@@ -93,9 +114,13 @@ export default function CarbonMonoxide() {
       >
         <div className="textData">
           <h3>Carbon Monoxide</h3>
-          <p>76ppm</p>
+          <p>{carbon}ppm</p>
         </div>
-        <span>Moderate</span>
+        <span>{status}</span>
+        <div
+          className="colorBar"
+          style={{ width: `${barWidth}%`, backgroundColor: color }}
+        ></div>
       </motion.div>
     </motion.div>
   );

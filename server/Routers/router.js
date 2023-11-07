@@ -14,4 +14,7 @@ router.route("/api/enterData").post(dataController.enterData);
 //SMOKE DETECTION
 router.route("/api/alertSmoke").post(dataController.alertSmoke);
 
+//GetData
+router.route("/api/getData").get(dataController.getData);
+
 module.exports = router;

@@ -2,9 +2,41 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./Temperature.scss";
 
-export default function Temperature() {
+export default function Temperature({ temp }) {
   let [width, setWidth] = useState(5);
-  let [barWidth, setBarWidth] = useState(80);
+  let charts = [
+    { from: 0, to: 10, status: "Cold", bar: 20, color: "#023e8a" },
+    { from: 10, to: 20, status: "Cool", bar: 40, color: "#8ecae6" },
+    { from: 20, to: 30, status: "Warm", bar: 60, color: "#f7924e" },
+    {
+      from: 30,
+      to: 40,
+      status: "Hot",
+      bar: 80,
+      color: "#f8741d",
+    },
+    {
+      from: 40,
+      to: 100000000,
+      status: "Blazing",
+      bar: 100,
+      color: "#fc4646",
+    },
+  ];
+
+  let [status, setStatus] = useState("");
+  let [barWidth, setBarWidth] = useState(0);
+  let [color, setColor] = useState("f9dc5c");
+
+  useEffect(() => {
+    charts.forEach((el) => {
+      if (temp >= el.from && temp <= el.to) {
+        setStatus(el.status);
+        setBarWidth(el.bar);
+        setColor(el.color);
+      }
+    });
+  }, []);
   return (
     <motion.div className="Temperature">
       <motion.p
@@ -94,9 +126,13 @@ export default function Temperature() {
       >
         <div className="textData">
           <h3>Temperature</h3>
-          <p>36 Degrees</p>
+          <p>{temp} Degrees</p>
         </div>
-        <span>Hot</span>
+        <span>{status}</span>
+        <div
+          className="colorBar"
+          style={{ width: `${barWidth}%`, backgroundColor: color }}
+        ></div>
       </motion.div>
     </motion.div>
   );

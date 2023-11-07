@@ -62,3 +62,19 @@ exports.alertSmoke = async (req, res) => {
     });
   }
 };
+
+exports.getData = async (req, res) => {
+  try {
+    let x = await data.find();
+    x.reverse();
+    res.status(200).json({
+      status: "ok",
+      data: x,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: "Something went Wrong",
+    });
+  }
+};

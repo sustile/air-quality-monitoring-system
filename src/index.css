@@ -11,10 +11,10 @@ html {
 }
 
 :root {
-  --primary-bg: #dbe8f5;
-  --black-1: #b8c5d1;
-  --black-2: #b8c5d1;
-  --sp-black: #dbe8f5;
+  --primary-bg: #242423;
+  --black-1: #2c2c2c;
+  --black-2: #383838;
+  --sp-black: #363636;
   --black-3: #505050;
   --black-4: #6a6a6a;
   --black-5: #6a6a6a;
@@ -22,18 +22,18 @@ html {
   --yellow-2: #ffe46f;
   --yellow-3: #fde88c;
   --yellow-4: #faedb3;
-  --primary-white: #383838;
+  --primary-white: #fafaf5;
   --green-1: #60993e;
   --green-2: #6fb048;
   --green-3: #82cc56;
   --green-4: #9cf06a;
   --green-5: #a6ff71;
-  --pink-1: #5a6166;
+  --pink-1: #9e829c;
   --pink-2: #bc9aba;
   --pink-3: #eac1e7;
   --pink-4: #eac1e7;
   --blue-1: #b9d6f2;
-  --secondary-white: #242423;
+  --secondary-white: #dbe8f5;
 }
 
 ::-webkit-scrollbar {

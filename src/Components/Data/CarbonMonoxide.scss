@@ -71,13 +71,14 @@
     //5rem -- hide
     //20rem --show
 
-    &::before {
+    .colorBar {
       position: absolute;
       display: inline-block;
       top: 0;
       left: 0;
       content: "";
       background-color: #f9dc5c;
+      //   background-color: #f8741d;
       z-index: -1;
       width: 50%;
       height: 100%;

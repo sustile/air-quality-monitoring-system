@@ -64,7 +64,7 @@
   width: calc(100% - 5rem);
   transition: width 0.3s ease;
 }
-.Hydrogen .MainData::before {
+.Hydrogen .MainData .colorBar {
   position: absolute;
   display: inline-block;
   top: 0;
