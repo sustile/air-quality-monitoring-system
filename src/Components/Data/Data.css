@@ -8,6 +8,7 @@
   border-radius: 1.6rem;
   background-color: var(--black-1);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  opacity: 0;
 }
 .Data h2 {
   color: var(--secondary-white);
@@ -16,6 +17,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-wrap: pretty;
 }
 .Data h2 span {
   color: var(--black-4);

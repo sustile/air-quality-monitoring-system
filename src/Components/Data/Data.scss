@@ -11,6 +11,7 @@
   //     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.02) 0px 4px 6px,
   //     rgba(0, 0, 0, 0.07) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  opacity: 0;
 
   h2 {
     color: var(--secondary-white);
@@ -19,6 +20,12 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    // text-overflow: ellipsis;
+    text-wrap: pretty;
+    // width: 50rem;
+    // white-space: nowrap;
+    // overflow: hidden;
+
     span {
       color: var(--black-4);
       font-weight: 600;

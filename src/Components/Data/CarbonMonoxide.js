@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./CarbonMonoxide.css";
 
-export default function CarbonMonoxide({ carbon }) {
+export default function CarbonMonoxide({ carbon, setGraphData }) {
   let [width, setWidth] = useState(5);
   let charts = [
     { from: 0, to: 50, status: "Good", bar: 20, color: "#9cf06a" },
@@ -46,6 +46,9 @@ export default function CarbonMonoxide({ carbon }) {
           },
         }}
         className="view-graph"
+        onClick={() => {
+          setGraphData({ status: true, type: "carbon" });
+        }}
       >
         View Graph
       </motion.p>

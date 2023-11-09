@@ -1,0 +1,94 @@
+.Footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  padding: 5rem 6rem;
+  background-color: var(--black-1);
+  width: 100%;
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 5px 25px;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    content: "";
+    background-color: rgb(39, 39, 39);
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    clip-path: polygon(0 0%, 25% 0, 75% 100%, 0% 100%);
+  }
+
+  h2 {
+    color: var(--blue-1);
+    font-family: "Poppins", sans-serif;
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    position: relative;
+    letter-spacing: 0.3rem;
+    z-index: 1;
+
+    &::before {
+      position: absolute;
+      display: inline-block;
+      bottom: -0.5rem;
+      left: 0;
+      content: "";
+      background-color: #363636;
+      z-index: -1;
+      width: 100%;
+      height: 0.6rem;
+      border-radius: 1rem;
+      transition: all 0.3s ease;
+    }
+  }
+  &-mainCont {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    width: 80%;
+    margin: 0 auto;
+    row-gap: 4rem;
+
+    .name {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      //   background-color: red;
+
+      p {
+        color: var(--secondary-white);
+        font-family: "Poppins", sans-serif;
+        font-size: 3rem;
+        font-style: normal;
+        font-weight: 200;
+        line-height: normal;
+        letter-spacing: 0.3rem;
+        text-align: center;
+      }
+
+      span {
+        color: var(--black-3);
+        font-family: "Poppins", sans-serif;
+        font-size: 2.5rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.3rem;
+      }
+    }
+  }
+}

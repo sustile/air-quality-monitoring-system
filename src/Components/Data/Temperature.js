@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./Temperature.scss";
+import Graph from "./Graph";
 
-export default function Temperature({ temp }) {
+export default function Temperature({ temp, setGraphData }) {
   let [width, setWidth] = useState(5);
   let charts = [
     { from: 0, to: 10, status: "Cold", bar: 20, color: "#023e8a" },
@@ -58,6 +59,9 @@ export default function Temperature({ temp }) {
           },
         }}
         className="view-graph"
+        onClick={() => {
+          setGraphData({ status: true, type: "temp" });
+        }}
       >
         View Graph
       </motion.p>

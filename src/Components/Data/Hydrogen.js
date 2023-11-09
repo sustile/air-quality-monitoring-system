@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./Hydrogen.css";
 
-export default function Hydrogen({ hydrogen }) {
+export default function Hydrogen({ hydrogen, setGraphData }) {
   let [width, setWidth] = useState(5);
   let [barWidth, setBarWidth] = useState(80);
   return (
@@ -26,6 +26,9 @@ export default function Hydrogen({ hydrogen }) {
           },
         }}
         className="view-graph"
+        onClick={() => {
+          setGraphData({ status: true, type: "hydrogen" });
+        }}
       >
         View Graph
       </motion.p>

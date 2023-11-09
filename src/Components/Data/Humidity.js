@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./Humidity.css";
 
-export default function Humidity({ humidity }) {
+export default function Humidity({ humidity, setGraphData }) {
   let [width, setWidth] = useState(5);
   let charts = [
     { from: 0, to: 25, status: "Poor", bar: 20, color: "#fc4646" },
@@ -57,6 +57,9 @@ export default function Humidity({ humidity }) {
             duration: 0.3,
             type: "spring",
           },
+        }}
+        onClick={() => {
+          setGraphData({ status: true, type: "humidity" });
         }}
         className="view-graph"
       >

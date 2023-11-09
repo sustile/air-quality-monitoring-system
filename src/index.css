@@ -8,6 +8,7 @@
 
 html {
   font-size: 55.5%;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -52,4 +53,36 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--primary-bg);
+  overflow-x: hidden;
+}
+
+@media (max-width: 1600px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (max-width: 1200px) {
+  html {
+    font-size: 40%;
+  }
+}
+@media (max-width: 900px) {
+  .DataContainer {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 700px) {
+  .Footer-mainCont {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 500px) {
+  html {
+    font-size: 30%;
+  }
+}
+@media (max-width: 300px) {
+  html {
+    font-size: 20%;
+  }
 }
