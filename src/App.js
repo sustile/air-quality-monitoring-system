@@ -16,7 +16,7 @@ function App() {
   let [tempData, setTempData] = useState([]);
   let [humidityData, setHumidityData] = useState([]);
   let [carbonData, setCarbonData] = useState([]);
-  let [hydrogenData, setHydrogenData] = useState([]);
+  // let [hydrogenData, setHydrogenData] = useState([]);
   let [graph, setGraph] = useState({ status: false, type: "" });
   let [showTop, setShowTop] = useState(false);
 
@@ -61,14 +61,14 @@ function App() {
         };
       })
     );
-    setHydrogenData(
-      data.map((el) => {
-        return {
-          data: el.hydrogen,
-          time: el.time,
-        };
-      })
-    );
+    // setHydrogenData(
+    //   data.map((el) => {
+    //     return {
+    //       data: el.hydrogen,
+    //       time: el.time,
+    //     };
+    //   })
+    // );
   }, [data]);
 
   async function reloadData() {
@@ -90,16 +90,12 @@ function App() {
           graph.type === "temp"
             ? "Temperature"
             : graph.type === "hydrogen"
-            ? "Hydrogen"
-            : graph.type === "carbon"
             ? "Carbon Monoxide"
             : "Humidity"
         }
         inputData={
           graph.type === "temp"
             ? tempData
-            : graph.type === "hydrogen"
-            ? hydrogenData
             : graph.type === "carbon"
             ? carbonData
             : humidityData

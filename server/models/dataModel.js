@@ -13,7 +13,14 @@ const schema = new mongoose.Schema(
       type: String,
       required: [true, "A Data must have carbonMonoxide"],
     },
-    hydrogen: { type: String, required: [true, "A Data must have hydrogen"] },
+    fineParticulateMatter: {
+      type: String,
+      required: [true, "A Data must have Fine Particulate Matter"],
+    },
+    airQualityIndex: {
+      type: String,
+      required: [true, "A Data must have Air Quality Index"],
+    },
   },
   { strict: true }
 );

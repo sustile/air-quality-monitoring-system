@@ -105,7 +105,7 @@ export default function Data({ latest, data, setGraphData, number }) {
           carbon={data.carbonMonoxide}
           setGraphData={setGraphData}
         />
-        <Hydrogen hydrogen={data.hydrogen} setGraphData={setGraphData} />
+        {/* <Hydrogen hydrogen={data.hydrogen} setGraphData={setGraphData} /> */}
       </motion.div>
     </AnimatePresence>
   );
