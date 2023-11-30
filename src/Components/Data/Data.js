@@ -5,6 +5,8 @@ import Temperature from "./Temperature";
 import CarbonMonoxide from "./CarbonMonoxide";
 import Humidity from "./Humidity";
 import Hydrogen from "./Hydrogen";
+import FPM from "./FPM";
+import AirQualityIndex from "./AirQualityIndex";
 const Choreographer = require("choreographer-js");
 
 export default function Data({ latest, data, setGraphData, number }) {
@@ -99,13 +101,20 @@ export default function Data({ latest, data, setGraphData, number }) {
         <h2>
           {latest && "Latest Data from"} <span>{dateString}</span>
         </h2>
-        <Temperature temp={data.temperature} setGraphData={setGraphData} />
-        <Humidity humidity={data.humidity} setGraphData={setGraphData} />
-        <CarbonMonoxide
-          carbon={data.carbonMonoxide}
-          setGraphData={setGraphData}
-        />
-        {/* <Hydrogen hydrogen={data.hydrogen} setGraphData={setGraphData} /> */}
+        <div className="DataBarCont">
+          <Temperature temp={data.temperature} setGraphData={setGraphData} />
+          <Humidity humidity={data.humidity} setGraphData={setGraphData} />
+          <CarbonMonoxide
+            carbon={data.carbonMonoxide}
+            setGraphData={setGraphData}
+          />
+          <FPM fpm={data.fineParticulateMatter} setGraphData={setGraphData} />
+          <AirQualityIndex
+            index={data.airQualityIndex}
+            setGraphData={setGraphData}
+          />
+          {/* <Hydrogen hydrogen={data.hydrogen} setGraphData={setGraphData} /> */}
+        </div>
       </motion.div>
     </AnimatePresence>
   );

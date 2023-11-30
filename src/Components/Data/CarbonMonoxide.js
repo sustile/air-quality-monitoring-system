@@ -27,85 +27,87 @@ export default function CarbonMonoxide({ carbon, setGraphData }) {
   }, []);
   return (
     <motion.div className="CarbonMonoxide">
-      <motion.p
-        initial={{
-          scale: 1,
-        }}
-        whileHover={{
-          scale: 1.03,
-          transition: {
-            duration: 0.3,
-            type: "spring",
-          },
-        }}
-        whileTap={{
-          scale: 1,
-          transition: {
-            duration: 0.3,
-            type: "spring",
-          },
-        }}
-        className="view-graph"
-        onClick={() => {
-          setGraphData({ status: true, type: "carbon" });
-        }}
-      >
-        View Graph
-      </motion.p>
-      <AnimatePresence>
-        {width === 5 && (
-          <motion.img
-            initial={{
-              scale: 0,
-            }}
-            animate={{
-              scale: 1,
-              transition: {
-                duration: 0.3,
-                type: "spring",
-              },
-            }}
-            whileTap={{
-              scale: 1,
-              transition: {
-                duration: 0.3,
-                type: "spring",
-              },
-            }}
-            onClick={() => {
-              setWidth(20);
-            }}
-            src={"/Icons/RightArrow.svg"}
-          />
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {width === 20 && (
-          <motion.img
-            initial={{
-              scale: 0,
-            }}
-            animate={{
-              scale: 1,
-              transition: {
-                duration: 0.3,
-                type: "spring",
-              },
-            }}
-            whileTap={{
-              scale: 1,
-              transition: {
-                duration: 0.3,
-                type: "spring",
-              },
-            }}
-            onClick={() => {
-              setWidth(5);
-            }}
-            src={"/Icons/x.svg"}
-          />
-        )}
-      </AnimatePresence>
+      <div className="CarbonMonoxide-bg">
+        <motion.p
+          initial={{
+            scale: 1,
+          }}
+          whileHover={{
+            scale: 1.03,
+            transition: {
+              duration: 0.3,
+              type: "spring",
+            },
+          }}
+          whileTap={{
+            scale: 1,
+            transition: {
+              duration: 0.3,
+              type: "spring",
+            },
+          }}
+          className="view-graph"
+          onClick={() => {
+            setGraphData({ status: true, type: "carbon" });
+          }}
+        >
+          View Graph
+        </motion.p>
+        <AnimatePresence>
+          {width === 5 && (
+            <motion.img
+              initial={{
+                scale: 0,
+              }}
+              animate={{
+                scale: 1,
+                transition: {
+                  duration: 0.3,
+                  type: "spring",
+                },
+              }}
+              whileTap={{
+                scale: 1,
+                transition: {
+                  duration: 0.3,
+                  type: "spring",
+                },
+              }}
+              onClick={() => {
+                setWidth(20);
+              }}
+              src={"/Icons/RightArrow.svg"}
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {width === 20 && (
+            <motion.img
+              initial={{
+                scale: 0,
+              }}
+              animate={{
+                scale: 1,
+                transition: {
+                  duration: 0.3,
+                  type: "spring",
+                },
+              }}
+              whileTap={{
+                scale: 1,
+                transition: {
+                  duration: 0.3,
+                  type: "spring",
+                },
+              }}
+              onClick={() => {
+                setWidth(5);
+              }}
+              src={"/Icons/x.svg"}
+            />
+          )}
+        </AnimatePresence>
+      </div>
 
       <motion.div
         className="MainData"

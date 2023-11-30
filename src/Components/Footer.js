@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
         <div className="name">
           <p>Ezhilarasan K</p>
-          <span>23BCE1010</span>
+          <span>23BEC1040</span>
         </div>
         <div className="name">
           <p>M Kishore Kumar</p>

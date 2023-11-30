@@ -1,4 +1,4 @@
-.Temperature {
+.AirQualityIndex {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -20,6 +20,7 @@
     align-items: center;
     gap: 1.5rem;
   }
+
   .view-graph {
     color: #363636;
     font-family: Poppins;

@@ -16,6 +16,8 @@ function App() {
   let [tempData, setTempData] = useState([]);
   let [humidityData, setHumidityData] = useState([]);
   let [carbonData, setCarbonData] = useState([]);
+  let [airQualityData, setAirQualityData] = useState([]);
+  let [fpmData, setFpmData] = useState([]);
   // let [hydrogenData, setHydrogenData] = useState([]);
   let [graph, setGraph] = useState({ status: false, type: "" });
   let [showTop, setShowTop] = useState(false);
@@ -61,6 +63,22 @@ function App() {
         };
       })
     );
+    setAirQualityData(
+      data.map((el) => {
+        return {
+          data: el.airQualityIndex,
+          time: el.time,
+        };
+      })
+    );
+    setFpmData(
+      data.map((el) => {
+        return {
+          data: el.fineParticulateMatter,
+          time: el.time,
+        };
+      })
+    );
     // setHydrogenData(
     //   data.map((el) => {
     //     return {
@@ -83,26 +101,36 @@ function App() {
 
   return (
     <div className="App">
-      <Header reloadData={reloadData} />
-      <DataContainer data={data} setGraphData={setGraphData} />
-      <Graph
-        title={
-          graph.type === "temp"
-            ? "Temperature"
-            : graph.type === "hydrogen"
-            ? "Carbon Monoxide"
-            : "Humidity"
-        }
-        inputData={
-          graph.type === "temp"
-            ? tempData
-            : graph.type === "carbon"
-            ? carbonData
-            : humidityData
-        }
-        closeGraph={closeGraph}
-        status={graph.status}
-      />
+      <div className="DataWrapper">
+        <Header reloadData={reloadData} />
+        <DataContainer data={data} setGraphData={setGraphData} />
+        <Graph
+          title={
+            graph.type === "temp"
+              ? "Temperature"
+              : graph.type === "humidity"
+              ? "Humidity"
+              : graph.type === "carbon"
+              ? "Carbon Monoxide"
+              : graph.type === "fpm"
+              ? "Fine Particuate Matter"
+              : "Air Quality Index"
+          }
+          inputData={
+            graph.type === "temp"
+              ? tempData
+              : graph.type === "humidity"
+              ? humidityData
+              : graph.type === "carbon"
+              ? carbonData
+              : graph.type === "fpm"
+              ? fpmData
+              : airQualityData
+          }
+          closeGraph={closeGraph}
+          status={graph.status}
+        />
+      </div>
       <Footer />
       <AnimatePresence>
         {showTop && (

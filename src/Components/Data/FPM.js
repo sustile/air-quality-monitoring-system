@@ -1,26 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import "./Humidity.css";
+import "./FPM.css";
+import Graph from "./Graph";
 
-export default function Humidity({ humidity, setGraphData }) {
+export default function FPM({ fpm, setGraphData }) {
   let [width, setWidth] = useState(5);
+  let [textColor, setTextColor] = useState("#242423");
   let charts = [
-    { from: 0, to: 25, status: "Poor", bar: 20, color: "#fc4646" },
-    { from: 26, to: 30, status: "Fair", bar: 40, color: "#f9dc5c" },
-    { from: 31, to: 60, status: "Good", bar: 60, color: "#9cf06a" },
+    { from: 0, to: 54, status: "Good", bar: 20, color: "#9cf06a" },
+    { from: 55, to: 154, status: "Moderate", bar: 40, color: "#f7924e" },
     {
-      from: 61,
-      to: 70,
-      status: "Fair",
-      bar: 80,
-      color: "#f9dc5c",
+      from: 155,
+      to: 254,
+      status: "Unhealthy for Sensitive Gorups",
+      bar: 60,
+      color: "#f8741d",
     },
     {
-      from: 71,
-      to: 100000000,
-      status: "Harmful",
-      bar: 100,
+      from: 255,
+      to: 354,
+      status: "Unhealthy",
+      bar: 80,
       color: "#fc4646",
+    },
+    {
+      from: 355,
+      to: 100000000,
+      status: "Very Unhealthy",
+      bar: 100,
+      color: "#612c42",
+      textColor: "#d8e2dc",
+      //   textColor: "#adb5bd",
     },
   ];
 
@@ -30,17 +40,17 @@ export default function Humidity({ humidity, setGraphData }) {
 
   useEffect(() => {
     charts.forEach((el) => {
-      if (humidity >= el.from && humidity <= el.to) {
+      if (fpm >= el.from && fpm <= el.to) {
         setStatus(el.status);
         setBarWidth(el.bar);
         setColor(el.color);
+        if (el.textColor) setTextColor(el.textColor);
       }
     });
   }, []);
-
   return (
-    <motion.div className="Humidity">
-      <div className="Humidity-bg">
+    <motion.div className="FPM">
+      <div className="FPM-bg">
         <motion.p
           initial={{
             scale: 1,
@@ -59,10 +69,10 @@ export default function Humidity({ humidity, setGraphData }) {
               type: "spring",
             },
           }}
-          onClick={() => {
-            setGraphData({ status: true, type: "humidity" });
-          }}
           className="view-graph"
+          onClick={() => {
+            setGraphData({ status: true, type: "fpm" });
+          }}
         >
           View Graph
         </motion.p>
@@ -121,6 +131,7 @@ export default function Humidity({ humidity, setGraphData }) {
           )}
         </AnimatePresence>
       </div>
+
       <motion.div
         className="MainData"
         style={
@@ -130,8 +141,22 @@ export default function Humidity({ humidity, setGraphData }) {
         }
       >
         <div className="textData">
-          <h3>Humidity</h3>
-          <p>{humidity}%</p>
+          <h3
+            style={{
+              color: textColor,
+              fontWeight: textColor === "#242423" ? "600" : "500",
+            }}
+          >
+            Fine Particulate Matter
+          </h3>
+          <p
+            style={{
+              color: textColor,
+              fontWeight: textColor === "#242423" ? "600" : "500",
+            }}
+          >
+            {fpm} ppm
+          </p>
         </div>
         <span>{status}</span>
         <div

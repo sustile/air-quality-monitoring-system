@@ -2,13 +2,24 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 1.5rem 2rem;
   border-radius: 10rem;
-  background: #5aa7f2;
   gap: 1.5rem;
   width: 100%;
   position: relative;
   height: 8rem;
+  //   background-color: red;
+
+  &-bg {
+    background: #5aa7f2;
+    width: 80%;
+    height: 100%;
+    padding: 1.5rem 2rem;
+    border-radius: 10rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem;
+  }
   .view-graph {
     color: #363636;
     font-family: Poppins;

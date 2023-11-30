@@ -1,4 +1,4 @@
-.CarbonMonoxide {
+.AirQualityIndex {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -8,7 +8,7 @@
   position: relative;
   height: 8rem;
 }
-.CarbonMonoxide-bg {
+.AirQualityIndex-bg {
   background: #5aa7f2;
   width: 80%;
   height: 100%;
@@ -19,7 +19,7 @@
   align-items: center;
   gap: 1.5rem;
 }
-.CarbonMonoxide .view-graph {
+.AirQualityIndex .view-graph {
   color: #363636;
   font-family: Poppins;
   font-size: 2rem;
@@ -31,7 +31,7 @@
   position: relative;
   z-index: 1;
 }
-.CarbonMonoxide .view-graph::before {
+.AirQualityIndex .view-graph::before {
   position: absolute;
   display: inline-block;
   bottom: -0.2rem;
@@ -45,19 +45,19 @@
   width: 0;
   transition: all 0.3s ease;
 }
-.CarbonMonoxide .view-graph:hover::before {
+.AirQualityIndex .view-graph:hover::before {
   width: 100%;
 }
-.CarbonMonoxide img {
+.AirQualityIndex img {
   width: 1.8rem;
   height: 1.8rem;
   cursor: pointer;
   transition: scale 0.3s ease;
 }
-.CarbonMonoxide img:hover {
+.AirQualityIndex img:hover {
   scale: 1.1;
 }
-.CarbonMonoxide .MainData {
+.AirQualityIndex .MainData {
   border-radius: 10rem;
   background: var(--sp-black);
   display: flex;
@@ -72,26 +72,27 @@
   z-index: 5;
   width: calc(100% - 5rem);
   transition: width 0.3s ease;
+  overflow: hidden;
 }
-.CarbonMonoxide .MainData .colorBar {
+.AirQualityIndex .MainData .colorBar {
   position: absolute;
   display: inline-block;
   top: 0;
   left: 0;
   content: "";
-  background-color: #f9dc5c;
+  background-color: #fc4646;
   z-index: -1;
   width: 50%;
   height: 100%;
   border-radius: 10rem;
 }
-.CarbonMonoxide .MainData .textData {
+.AirQualityIndex .MainData .textData {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
 }
-.CarbonMonoxide .MainData .textData h3 {
+.AirQualityIndex .MainData .textData h3 {
   color: #242423;
   font-family: Poppins;
   font-size: 2rem;
@@ -99,7 +100,7 @@
   font-weight: 600;
   line-height: normal;
 }
-.CarbonMonoxide .MainData .textData p {
+.AirQualityIndex .MainData .textData p {
   color: #242423;
   font-family: Poppins;
   font-size: 1.8rem;
@@ -107,7 +108,7 @@
   font-weight: 500;
   line-height: normal;
 }
-.CarbonMonoxide .MainData span {
+.AirQualityIndex .MainData span {
   color: var(--primary-white);
   font-family: Poppins;
   font-size: 2rem;

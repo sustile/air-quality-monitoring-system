@@ -8,6 +8,7 @@ const router = require("./Routers/router");
 const { pathToFileURL } = require("url");
 const app = express();
 
+app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.json({ limit: 15000000 }));
 app.use(express.static(path.join(__dirname, "../build")));

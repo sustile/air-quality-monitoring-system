@@ -1,26 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import "./Humidity.css";
+import "./AirQualityIndex.css";
+import Graph from "./Graph";
 
-export default function Humidity({ humidity, setGraphData }) {
+export default function AirQualityIndex({ index, setGraphData }) {
   let [width, setWidth] = useState(5);
+  let [textColor, setTextColor] = useState("#242423");
   let charts = [
-    { from: 0, to: 25, status: "Poor", bar: 20, color: "#fc4646" },
-    { from: 26, to: 30, status: "Fair", bar: 40, color: "#f9dc5c" },
-    { from: 31, to: 60, status: "Good", bar: 60, color: "#9cf06a" },
+    { from: 0, to: 50, status: "Good", bar: 20, color: "#9cf06a" },
+    { from: 51, to: 100, status: "Moderate", bar: 30, color: "#ffc300" },
     {
-      from: 61,
-      to: 70,
-      status: "Fair",
-      bar: 80,
-      color: "#f9dc5c",
+      from: 101,
+      to: 150,
+      status: "Unhealthy for Sensitive Groups",
+      bar: 40,
+      color: "#f7924e",
     },
     {
-      from: 71,
-      to: 100000000,
-      status: "Harmful",
-      bar: 100,
+      from: 151,
+      to: 200,
+      status: "Unhealthy",
+      bar: 60,
       color: "#fc4646",
+    },
+    {
+      from: 201,
+      to: 300,
+      status: "Very Unhealthy",
+      bar: 80,
+      color: "#826aed",
+    },
+    {
+      from: 301,
+      to: 100000000000000,
+      status: "Hazardous",
+      bar: 100,
+      color: "#612c42",
+      textColor: "#ced4da",
     },
   ];
 
@@ -30,17 +46,17 @@ export default function Humidity({ humidity, setGraphData }) {
 
   useEffect(() => {
     charts.forEach((el) => {
-      if (humidity >= el.from && humidity <= el.to) {
+      if (index >= el.from && index <= el.to) {
         setStatus(el.status);
         setBarWidth(el.bar);
         setColor(el.color);
+        if (el.textColor) setTextColor(el.textColor);
       }
     });
   }, []);
-
   return (
-    <motion.div className="Humidity">
-      <div className="Humidity-bg">
+    <motion.div className="AirQualityIndex">
+      <div className="AirQualityIndex-bg">
         <motion.p
           initial={{
             scale: 1,
@@ -59,10 +75,10 @@ export default function Humidity({ humidity, setGraphData }) {
               type: "spring",
             },
           }}
-          onClick={() => {
-            setGraphData({ status: true, type: "humidity" });
-          }}
           className="view-graph"
+          onClick={() => {
+            setGraphData({ status: true, type: "air" });
+          }}
         >
           View Graph
         </motion.p>
@@ -121,6 +137,7 @@ export default function Humidity({ humidity, setGraphData }) {
           )}
         </AnimatePresence>
       </div>
+
       <motion.div
         className="MainData"
         style={
@@ -130,8 +147,22 @@ export default function Humidity({ humidity, setGraphData }) {
         }
       >
         <div className="textData">
-          <h3>Humidity</h3>
-          <p>{humidity}%</p>
+          <h3
+            style={{
+              color: textColor,
+              fontWeight: textColor === "#242423" ? "600" : "500",
+            }}
+          >
+            Air Quality Index
+          </h3>
+          <p
+            style={{
+              color: textColor,
+              fontWeight: textColor === "#242423" ? "600" : "500",
+            }}
+          >
+            {index}
+          </p>
         </div>
         <span>{status}</span>
         <div

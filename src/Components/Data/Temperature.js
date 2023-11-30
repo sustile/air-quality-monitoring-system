@@ -7,17 +7,17 @@ export default function Temperature({ temp, setGraphData }) {
   let [width, setWidth] = useState(5);
   let charts = [
     { from: 0, to: 10, status: "Cold", bar: 20, color: "#023e8a" },
-    { from: 10, to: 20, status: "Cool", bar: 40, color: "#8ecae6" },
-    { from: 20, to: 30, status: "Warm", bar: 60, color: "#f7924e" },
+    { from: 11, to: 20, status: "Cool", bar: 40, color: "#8ecae6" },
+    { from: 21, to: 30, status: "Warm", bar: 60, color: "#f7924e" },
     {
-      from: 30,
+      from: 31,
       to: 40,
       status: "Hot",
       bar: 80,
       color: "#f8741d",
     },
     {
-      from: 40,
+      from: 41,
       to: 100000000,
       status: "Blazing",
       bar: 100,
@@ -40,85 +40,87 @@ export default function Temperature({ temp, setGraphData }) {
   }, []);
   return (
     <motion.div className="Temperature">
-      <motion.p
-        initial={{
-          scale: 1,
-        }}
-        whileHover={{
-          scale: 1.03,
-          transition: {
-            duration: 0.3,
-            type: "spring",
-          },
-        }}
-        whileTap={{
-          scale: 1,
-          transition: {
-            duration: 0.3,
-            type: "spring",
-          },
-        }}
-        className="view-graph"
-        onClick={() => {
-          setGraphData({ status: true, type: "temp" });
-        }}
-      >
-        View Graph
-      </motion.p>
-      <AnimatePresence>
-        {width === 5 && (
-          <motion.img
-            initial={{
-              scale: 0,
-            }}
-            animate={{
-              scale: 1,
-              transition: {
-                duration: 0.3,
-                type: "spring",
-              },
-            }}
-            whileTap={{
-              scale: 1,
-              transition: {
-                duration: 0.3,
-                type: "spring",
-              },
-            }}
-            onClick={() => {
-              setWidth(20);
-            }}
-            src={"/Icons/RightArrow.svg"}
-          />
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {width === 20 && (
-          <motion.img
-            initial={{
-              scale: 0,
-            }}
-            animate={{
-              scale: 1,
-              transition: {
-                duration: 0.3,
-                type: "spring",
-              },
-            }}
-            whileTap={{
-              scale: 1,
-              transition: {
-                duration: 0.3,
-                type: "spring",
-              },
-            }}
-            onClick={() => {
-              setWidth(5);
-            }}
-            src={"/Icons/x.svg"}
-          />
-        )}
-      </AnimatePresence>
+      <div className="Temperature-bg">
+        <motion.p
+          initial={{
+            scale: 1,
+          }}
+          whileHover={{
+            scale: 1.03,
+            transition: {
+              duration: 0.3,
+              type: "spring",
+            },
+          }}
+          whileTap={{
+            scale: 1,
+            transition: {
+              duration: 0.3,
+              type: "spring",
+            },
+          }}
+          className="view-graph"
+          onClick={() => {
+            setGraphData({ status: true, type: "temp" });
+          }}
+        >
+          View Graph
+        </motion.p>
+        <AnimatePresence>
+          {width === 5 && (
+            <motion.img
+              initial={{
+                scale: 0,
+              }}
+              animate={{
+                scale: 1,
+                transition: {
+                  duration: 0.3,
+                  type: "spring",
+                },
+              }}
+              whileTap={{
+                scale: 1,
+                transition: {
+                  duration: 0.3,
+                  type: "spring",
+                },
+              }}
+              onClick={() => {
+                setWidth(20);
+              }}
+              src={"/Icons/RightArrow.svg"}
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {width === 20 && (
+            <motion.img
+              initial={{
+                scale: 0,
+              }}
+              animate={{
+                scale: 1,
+                transition: {
+                  duration: 0.3,
+                  type: "spring",
+                },
+              }}
+              whileTap={{
+                scale: 1,
+                transition: {
+                  duration: 0.3,
+                  type: "spring",
+                },
+              }}
+              onClick={() => {
+                setWidth(5);
+              }}
+              src={"/Icons/x.svg"}
+            />
+          )}
+        </AnimatePresence>
+      </div>
 
       <motion.div
         className="MainData"

@@ -21,21 +21,31 @@ exports.enterData = async (req, res) => {
         status: "fail",
         message: "No Temperature Data",
       });
+      return;
     } else if (!body.humidity) {
       res.status(400).json({
         status: "fail",
         message: "No Humidity Data",
       });
+      return;
     } else if (!body.carbonMonoxide) {
       res.status(400).json({
         status: "fail",
         message: "No Carbon Monoxide Data",
       });
-    } else if (!body.hydrogen) {
+      return;
+    } else if (!body.fineParticulateMatter) {
       res.status(400).json({
         status: "fail",
-        message: "No Hydrogen Data",
+        message: "No Fine Particulate Matter Data",
       });
+      return;
+    } else if (!body.airQualityIndex) {
+      res.status(400).json({
+        status: "fail",
+        message: "No Air Quality Index Data",
+      });
+      return;
     }
 
     const newData = await data.create(body);
@@ -49,6 +59,7 @@ exports.enterData = async (req, res) => {
       status: "fail",
       message: "Something went Wrong",
     });
+    return;
   }
 };
 
