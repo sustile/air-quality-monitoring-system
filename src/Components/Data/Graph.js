@@ -36,15 +36,27 @@ export default function Graph({ title, inputData, closeGraph, status }) {
 
   useEffect(() => {
     let x = subDays(new Date().setHours(0, 0, 0, 0), day);
+
     let y = inputData.filter((el) => {
       if (compareAsc(x, new Date(el.time)) !== 1) return el;
     });
+
     setData(y);
   }, [day]);
 
+  function sortDates(x) {
+    x.sort(function (a, b) {
+      return new Date(a.time) - new Date(b.time);
+    });
+    return x;
+  }
+
   useEffect(() => {
     let final = {};
-    data.forEach((el) => {
+
+    let x = sortDates(data);
+
+    for (let el of x) {
       let date = new Date(el.time);
       let dateString = `${String(date.getDate()).padStart(2, "0")} ${
         monthList[date.getMonth()]
@@ -56,7 +68,7 @@ export default function Graph({ title, inputData, closeGraph, status }) {
         date.getHours() > 12 ? "PM" : "AM"
       }`;
       final[dateString] = el.data;
-    });
+    }
     setActualData(final);
   }, [data]);
 
